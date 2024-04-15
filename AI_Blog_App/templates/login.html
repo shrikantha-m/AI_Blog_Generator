@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="flex flex-col min-h-screen bg-gray-100 font-sans antialiased">
+    <!--Navbar-->
+    <nav class="bg-blue-600 p-4 text-white flex justify-between">
+      <div>
+        <h1 class="text-3xl font-bold">AI Blog Generator</h1>
+      </div>
+      <div>
+      </div>
+    </nav>
+    <br><br>
+
+    <!--Main content-->
+    <div
+      class="flex-grow container mx-auto mt-10 px-4 sm:px-0 items-center justify-center h-screen"
+    >
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 max-w-sm mx-auto w-full text-center"
+      >
+        <!--Error message-->
+      {% if error_message %}
+        <div align="center" style="color: red">
+          <h2>{{error_message}}</h2>
+        </div>
+        {% endif %}
+
+        <!--Login form-->
+        <form action="" method="post" class="space-y-4">
+          {% csrf_token %}
+          <h1 class="text-2xl font-bold mb-4">Login</h1>
+          <div>
+            <label
+              for="username"
+              class="block text-gray-700 font-bold mb-2 text-left"
+              >Username</label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div>
+            <label
+              for="password"
+              class="block text-gray-700 font-bold mb-2 text-left"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Login
+          </button>
+          <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+            Don’t have an account yet? <a href="signup" class="text-blue-500 hover:text-blue-700 underline font-semibold ml-2">Sign up</a>
+        </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
